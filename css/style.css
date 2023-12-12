@@ -30,74 +30,115 @@
 body {
   background-color: var(--very-light-gray);
   font-family: var(--f-fam);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
-.container {
-  width: 350px;
+/* Header CSS style */
+.header {
+  margin: 100px auto;
+  max-width: 475px;
   text-align: center;
-}
-.content {
-  display: flex;
-  flex-direction: row;
-  padding: 25px;
+  padding: 0 20px;
 }
 
-.content-text {
-  display: flex;
-  flex-direction: column;
-}
-.content-title {
+.header-title {
+  color: var(--very-dark-blue);
   font-size: 25px;
-  font-weight: 600;
+  font-weight: var(--thin-font);
   text-align: center;
 }
-.content-title span,
-.content-description {
-  font-weight: 200;
+
+.header-subtitle {
+  font-size: 25px;
+  color: var(--very-dark-blue);
+  text-align: center;
+  font-weight: var(--bold-font);
 }
-.content-description {
-  font-size: 15px;
+
+.header-description {
+  text-align: center;
+  font-size: 16px;
+  color: var(--grayish-blue);
+  font-weight: var(--normal-font);
+  margin-top: 25px;
+}
+
+/* Cards CSS style */
+
+.card-container {
+  margin: 80px 30px;
 }
 
 .card {
-  background-color: white;
-  border-radius: 5px;
-  text-align: start;
-  border-top: 3px solid var(--cyan);
-  margin: 20px;
-  padding: 20px;
-  box-shadow: 5px 5px 5px 5px var(--grayish-blue);
+  border-radius: 8px;
+  padding: 30px 20px;
+  margin-bottom: 3rem;
+  box-shadow: 0 16px 32px 8px #dedede;
 }
-.card:nth-child(2) {
-  border-top: 3px solid var(--red);
+
+.card-supervisor {
+  border-top: 5px solid var(--cyan);
 }
-.card:nth-child(3) {
-  border-top: 3px solid var(--orange);
+.card-team-builder {
+  border-top: 5px solid var(--red);
 }
-.card:nth-child(4) {
-  border-top: 3px solid var(--blue);
+
+.card-karma {
+  border-top: 5px solid var(--orange);
+}
+.card-calculator {
+  border-top: 5px solid var(--blue);
 }
 .card-text {
-  padding: 20px;
   text-align: start;
 }
 .card-title {
+  margin: 0;
+  padding-bottom: 5px;
   font-size: 20px;
   font-weight: var(--bold-font);
+  color: var(--very-dark-blue);
 }
 .card-description {
   font-size: 15px;
   color: var(--grayish-blue);
 }
 .card-img {
-  text-align: end;
+  display: flex;
+  justify-content: right;
+  padding-top: 20px;
 }
-img {
-  width: 50px;
+
+/* Destop Version */
+
+@media screen and (min-width: 768px) {
+  .card-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 20px;
+  }
 }
+
+@media screen and (min-width: 1024px) {
+  .card-container {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-areas: "left mid1 right" "left mid2 right";
+  }
+  .card-supervisor {
+    grid-area: left;
+    align-self: center;
+  }
+  .card-team-builder {
+    grid-area: mid1;
+  }
+  .card-karma {
+    grid-area: mid2;
+  }
+  .card-calculator {
+    grid-area: right;
+    align-self: center;
+  }
+}
+
 .attribution {
   font-size: 11px;
   text-align: center;
