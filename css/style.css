@@ -123,6 +123,10 @@ body {
     grid-template-rows: repeat(2, 1fr);
     grid-template-areas: "left mid1 right" "left mid2 right";
   }
+
+.card{
+  width: 80%;
+}
   .card-supervisor {
     grid-area: left;
     align-self: center;
